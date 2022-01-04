@@ -12,6 +12,7 @@ def categorie_age(age):
     elif age <= 40:
         return "Pro"
 
+
 #a = int(input("inserer age\n"))
 
 #b = categorie_age(a)
