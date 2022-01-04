@@ -12,8 +12,12 @@ def categorie_age(age):
     elif age <= 40:
         return "Pro"
 
-
 #a = int(input("inserer age\n"))
 
 #b = categorie_age(a)
 #print(b)
+
+def adresse_email(nom,prenom):
+    print(prenom[0],".",nom,"@baton-rouge.fr", sep="")
+
+#adresse_email("corin","gaetan")
