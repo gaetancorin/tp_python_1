@@ -1,4 +1,6 @@
-def categorie_age(age):
+# Classe la personne en fonction de son année de naissance
+def categorie_age(annee):
+    age = 2022 - int(annee)
     if age < 6 or age > 40:
         return "Non admis"
     elif age < 12:
@@ -12,12 +14,24 @@ def categorie_age(age):
     elif age <= 40:
         return "Pro"
 
-#a = int(input("inserer age\n"))
-
+#a = int(input("inserer annee\n"))
 #b = categorie_age(a)
 #print(b)
 
+# Créer son adresse email
 def adresse_email(nom,prenom):
-    print(prenom[0],".",nom,"@baton-rouge.fr", sep="")
+    a = str(prenom[0]+"."+nom+"@baton-rouge.fr")
+    return a
 
 #adresse_email("corin","gaetan")
+
+def donnee_complete(nom,prenom, annee_naissance):
+    adressemail = adresse_email(nom, prenom)
+    categorie= categorie_age(annee_naissance)
+    print(nom, prenom, adressemail, categorie)
+
+a =input("insérer le nom\n")
+b =input("insérer le prénom\n")
+c =input("insérer l'année de naissance\n")
+
+donnee_complete(a, b, c)
