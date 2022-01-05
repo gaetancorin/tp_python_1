@@ -50,30 +50,35 @@ def nbr_a_inscrire():
         nbr = 0
     return nbr
 
+def transf_donnee_inserer_en_liste():
+    a = input("insérer le nom\n")
+    b = input("insérer le prénom\n")
+
+    while True:
+        try:
+            c = int(input("insérer l'année de naissance\n"))
+        except ValueError:
+            print("Ce n'est pas un nombre valide, entrez un nombre sous forme de chiffres")
+        if c >= 1900 and c < 2050:
+            break
+        else:
+            print("entrez une date de naissance à partir de 1900.")
+
+    liste_inscription = []
+    liste_inscription.append([donnee_complete(a, b, c)[0]])
+    liste_inscription.append([donnee_complete(a, b, c)[1]])
+    liste_inscription.append([donnee_complete(a, b, c)[2]])
+    liste_inscription.append([donnee_complete(a, b, c)[3]])
+    print(liste_inscription)
+    return liste_inscription
+
+
 def enrg_inscription_nbr_connu(nbr):
 
     liste_final = []
     for i in range(1, nbr + 1):
         print("-------", i, "inscription ------")
-        a = input("insérer le nom\n")
-        b = input("insérer le prénom\n")
-
-        while True:
-            try:
-                c = int(input("insérer l'année de naissance\n"))
-            except ValueError:
-                print("Ce n'est pas un nombre valide, entrez un nombre sous forme de chiffres")
-            if c >= 1900 and c < 2050:
-                break
-            else:
-                print("entrez une date de naissance à partir de 1900.")
-
-        liste_inscription = []
-        liste_inscription.append([donnee_complete(a, b, c)[0]])
-        liste_inscription.append([donnee_complete(a, b, c)[1]])
-        liste_inscription.append([donnee_complete(a, b, c)[2]])
-        liste_inscription.append([donnee_complete(a, b, c)[3]])
-        print(liste_inscription)
+        liste_inscription = transf_donnee_inserer_en_liste()
 
         liste_final.append(liste_inscription)
 
@@ -92,25 +97,7 @@ def enrg_inscription_nbr_inconnu(nbr):
         if ajout_nv_personne == "1":
             nbr += 1
             print("-------", nbr, "inscription ------")
-            a = input("insérer le nom\n")
-            b = input("insérer le prénom\n")
-
-            while True:
-                try:
-                    c = int(input("insérer l'année de naissance\n"))
-                except ValueError:
-                    print("Ce n'est pas un nombre valide, entrez un nombre sous forme de chiffres")
-                if c >= 1900 and c < 2050:
-                    break
-                else:
-                    print("entrez une date de naissance à partir de 1900.")
-
-            liste_inscription = []
-            liste_inscription.append([donnee_complete(a, b, c)[0]])
-            liste_inscription.append([donnee_complete(a, b, c)[1]])
-            liste_inscription.append([donnee_complete(a, b, c)[2]])
-            liste_inscription.append([donnee_complete(a, b, c)[3]])
-            print(liste_inscription)
+            liste_inscription = transf_donnee_inserer_en_liste()
 
             liste_final.append(liste_inscription)
 
