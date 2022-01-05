@@ -28,10 +28,29 @@ def adresse_email(nom,prenom):
 def donnee_complete(nom,prenom, annee_naissance):
     adressemail = adresse_email(nom, prenom)
     categorie= categorie_age(annee_naissance)
-    print(nom, prenom, adressemail, categorie)
+    return nom, prenom, adressemail, categorie
 
-a =input("insérer le nom\n")
-b =input("insérer le prénom\n")
-c =input("insérer l'année de naissance\n")
+def nbr_a_inscrire():
+    nbr = int(input("Combien de demande d'inscription souhaitez vous faire?\n"))
+    liste_inscrits = []
+    for i in range(1, nbr+1):
+        print("-------",i,"inscription ------")
+        a = input("insérer le nom\n")
+        b = input("insérer le prénom\n")
+        c = input("insérer l'année de naissance\n")
 
-donnee_complete(a, b, c)
+        liste_inscription = []
+        liste_inscription.append([donnee_complete(a, b, c)[0]])
+        liste_inscription.append([donnee_complete(a, b, c)[1]])
+        liste_inscription.append([donnee_complete(a, b, c)[2]])
+
+        liste_inscrits.append(liste_inscription)
+
+    #     print(liste_inscription)
+    # print(liste_inscrits)
+    return liste_inscrits
+
+
+a = nbr_a_inscrire()
+print(a)
+
