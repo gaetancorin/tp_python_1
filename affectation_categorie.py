@@ -14,16 +14,10 @@ def categorie_age(annee):
     elif age <= 40:
         return "Pro"
 
-#a = int(input("inserer annee\n"))
-#b = categorie_age(a)
-#print(b)
-
 # Créer son adresse email
 def adresse_email(nom,prenom):
     a = str(prenom[0]+"."+nom+"@baton-rouge.fr")
     return a
-
-#adresse_email("corin","gaetan")
 
 def donnee_complete(nom,prenom, annee_naissance):
     adressemail = adresse_email(nom, prenom)
@@ -106,8 +100,6 @@ def enrg_inscription_nbr_inconnu(nbr):
     return liste_final
 
 
-
-
 def enregistrement_inscription():
 
     nbr = nbr_a_inscrire()
@@ -116,9 +108,4 @@ def enregistrement_inscription():
     if nbr == 0:
         liste_final = enrg_inscription_nbr_inconnu(nbr)
     return liste_final
-
-
-
-a = enregistrement_inscription()
-print(a)
 
