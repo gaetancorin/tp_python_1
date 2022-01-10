@@ -1,6 +1,8 @@
 from fonction_enregistrement import adresse_email, categorie_age
+from enregistrement_csv import ecrire, lire
+from datetime import date
 
-#demander si connaissance du nombre de personne a inscrire et la quantité de personnes
+# demander si connaissance du nombre de personne a inscrire et la quantité de personnes
 while True:
     connaitre_nombre = input("Connaissez-vous le nombres de personnes a inscrire? Oui(1) / Non(2)\n")
     if connaitre_nombre == "1" or connaitre_nombre == "2":
@@ -18,7 +20,7 @@ if connaitre_nombre == "1":
 if connaitre_nombre == "2":
     nbr_a_inscrire = 0
 
-#liste qui enregistre tous les enregistrements
+# liste qui enregistre tous les enregistrements
 liste_final =[]
 
 # réaliser l'enregistrement si nombre de personnes connu
@@ -41,7 +43,7 @@ if nbr_a_inscrire >= 1:
         email = adresse_email(nom, prenom)
         categorie = categorie_age(annee)
 
-        enregistrement = [[nom],[prenom],[email],[categorie]]
+        enregistrement = [nom,prenom,email,categorie]
         print(enregistrement)
         liste_final.append(enregistrement)
 
@@ -75,13 +77,21 @@ if nbr_a_inscrire == 0:
             email = adresse_email(nom, prenom)
             categorie = categorie_age(annee)
 
-            enregistrement = [[nom], [prenom], [email], [categorie]]
+            enregistrement = [nom, prenom, email, categorie]
             print(enregistrement)
             liste_final.append(enregistrement)
 
         if ajout_nv_personne == "2":
             break
 
-print(liste_final)
+print("LA LISTE DE TOUT LES INSCRITS",liste_final)
+
+
+
+a = str(date.today())
+ecrire("inscrits-"+ a+".csv", liste_final)
+lire("inscrits-"+ a+".csv")
+
+
 
 

@@ -13,8 +13,7 @@ def categorie_age(annee):
     elif age <= 40:
         return "Pro"
 
+
 def adresse_email(nom,prenom):
     a = str(prenom[0]+"."+nom+"@baton-rouge.fr")
     return a
-
-
