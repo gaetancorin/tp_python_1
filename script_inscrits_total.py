@@ -7,16 +7,18 @@ f.close()
 
 chemin = os.getcwd()
 liste = (os.listdir(chemin))
+print(liste)
 
 for i in liste:
     if re.match("inscrits-20",i):
         print(i)
         with open(i,"r") as dossier:
-            for line in dossier:
+            spamreader = csv.reader(dossier, delimiter=";")
+            for line in spamreader:
                 print(line)
-                with open("inscrits_total.csv", 'a', newline='') as csvfile:
+                with open("inscrits_total.csv", 'a') as csvfile:
                     spamwriter = csv.writer(csvfile, delimiter=';')
-                    spamwriter.writerow([line])
+                    spamwriter.writerow([line[0], line[1], line[2], line[3]])
 
 
 
