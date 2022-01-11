@@ -37,7 +37,21 @@ for i in liste:
                 csvfile.close()
 # Si aucune ligne identique entre la totalité de inscrit_total et la ligne du fichier qui match, ajouter la ligne a inscrits-total
                 if doublon != 1:
-                    with open("inscrits_total/inscrits_total.csv", 'a') as csvfile:
+                    with open("inscrits_total/inscrits_total.csv", 'a', newline='') as csvfile:
                         spamwriter = csv.writer(csvfile, delimiter=';')
-                        spamwriter.writerow([line[0], line[1], line[2], line[3]])
+                        spamwriter.writerow(line)
+
+Non_admis = 0
+Poussin = 0
+Cadet = 0
+Junior = 0
+Semi_pro = 0
+Pro = 0
+
+with open("inscrits_total/inscrits_total.csv", "r") as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=";")
+    for line in csvfile:
+        csv_row = line.split()
+        print(line[2])
+
 
