@@ -51,7 +51,6 @@ Pro = 0
 with open("inscrits_total/inscrits_total.csv", "r") as csvfile:
     spamreader = csv.reader(csvfile, delimiter=";")
     for line in csvfile:
-        csv_row = line.split()
         print(line[2])
 
 
