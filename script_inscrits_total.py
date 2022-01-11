@@ -2,7 +2,14 @@ import csv
 import os
 import re
 
-f = open("inscrits_total.csv", 'w')
+try:
+    os.mkdir("inscrits_total")
+except FileExistsError:
+    pass
+
+
+
+f = open("inscrits_total/inscrits_total.csv", 'w')
 f.close()
 
 chemin = os.getcwd()
@@ -16,7 +23,7 @@ for i in liste:
             spamreader = csv.reader(dossier, delimiter=";")
             for line in spamreader:
                 print(line)
-                with open("inscrits_total.csv", 'a') as csvfile:
+                with open("inscrits_total/inscrits_total.csv", 'a') as csvfile:
                     spamwriter = csv.writer(csvfile, delimiter=';')
                     spamwriter.writerow([line[0], line[1], line[2], line[3]])
 

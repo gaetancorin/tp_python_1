@@ -88,9 +88,9 @@ print("LA LISTE DE TOUT LES INSCRITS",liste_final)
 
 
 
-a = str(date.today())
-ecrire("inscrits-"+ a+".csv", liste_final)
-lire("inscrits-"+ a+".csv")
+date_du_jour = str(date.today())
+ecrire("inscrits-"+ date_du_jour+".csv", liste_final)
+lire("inscrits-"+ date_du_jour+".csv")
 
 
 
