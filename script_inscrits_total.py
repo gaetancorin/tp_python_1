@@ -8,14 +8,16 @@ except FileExistsError:
     pass
 
 
-
+#reinitialise inscrits-total
 f = open("inscrits_total/inscrits_total.csv", 'w')
 f.close()
 
+#trouver tous les fichiers voisins et les mets dans une liste
 chemin = os.getcwd()
 liste = (os.listdir(chemin))
 print(liste)
 
+#trouver dans liste les fichiers commencant par inscrit-20, ouvrir et pour chaque ligne, ecrire dans inscrit-total
 for i in liste:
     if re.match("inscrits-20",i):
         print(i)
@@ -27,18 +29,3 @@ for i in liste:
                     spamwriter = csv.writer(csvfile, delimiter=';')
                     spamwriter.writerow([line[0], line[1], line[2], line[3]])
 
-
-
-
-
-
-
-
-
-# def ecrire(fichier):
-#     with open(fichier, 'w', newline='') as csvfile:
-#         spamwriter = csv.writer(csvfile, delimiter=';')
-#         for i in liste_final:
-#             spamwriter.writerow(i)
-#
-# ecrire("inscrits_total.csv")
