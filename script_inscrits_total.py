@@ -48,9 +48,13 @@ Junior = 0
 Semi_pro = 0
 Pro = 0
 
-with open("inscrits_total/inscrits_total.csv", "r") as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=";")
-    for line in csvfile:
-        print(line[2])
+# with open("inscrits_total/inscrits_total.csv", "r") as csvfile:
+#     spamreader = csv.reader(csvfile, delimiter=";")
+#     for line in csvfile:
+#         print(line[2])
+
+
+
+
 
 
