@@ -1,6 +1,6 @@
-from fonction_enregistrement import adresse_email, categorie_age
-from enregistrement_csv import ecrire, lire
+from fonction_enregistrement import adresse_email, categorie_age, ecrire, lire
 from datetime import date
+# REALISE LA LISTE DES INSCRIPTIONS DU JOUR
 
 # demander si connaissance du nombre de personne a inscrire et la quantité de personnes
 while True:
