@@ -7,7 +7,6 @@ try:
 except FileExistsError:
     pass
 
-
 # reinitialise inscrits-total
 f = open("inscrits_total/inscrits_total.csv", 'w')
 f.close()
@@ -42,28 +41,29 @@ for i in liste:
                         spamwriter.writerow(line)
 
 
-categorie = [["Non_admis"], ["Poussin"], ["Cadet"], ["Junior"], ["Semi_pro"], ["Pro"]]
+classement = [["Non_admis"], ["Poussin"], ["Cadet"], ["Junior"], ["Semi_pro"], ["Pro"]]
 
-# Recuperer la categorie de chaque ligne de inscrits-total(csv)
-with open("inscrits_total/inscrits_total.csv", "r", newline='') as f:
+# Recuperer le fieldname categorie de chaque ligne de inscrits-total(csv)
+with open("inscrits_total/inscrits_total.csv", "r", newline='') as inscrit_total:
     fieldnames = ['nom', 'prenom', 'email', 'categorie']
-    reader = csv.DictReader(f, fieldnames=fieldnames, delimiter=';')
+    reader = csv.DictReader(inscrit_total, fieldnames=fieldnames, delimiter=';')
     for line in reader:
         # print(line['categorie'])
-# comparer le resultat de categorie(du csv) avec la liste categorie, ajouter si egal
-        for categ in categorie:
-            if categ[0] == line['categorie']:
-                categ.append(line)
+# comparer le resultat de categorie(du csv) avec la liste classement, ajouter donné dans classement si egal
+        for i in classement:
+            if i[0] == line['categorie']:
+                a = str(line['nom']), str(line['prenom']), str(line['email']), str(line['categorie'])
+                i.append(a)
             else:
                 pass
 
 # range le tableau categorie du plus remplis en moins remplis
-categorie.sort(key=len, reverse=True)
+classement.sort(key=len, reverse=True)
 
 # print les enregistrement classé par cotegorie de manière decroissante
-for categor in categorie:
+for categorie in classement:
     print("---------")
-    for enregistrement in categor:
+    for enregistrement in categorie:
         print(enregistrement)
 
 
