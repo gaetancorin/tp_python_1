@@ -23,7 +23,7 @@ if args.addlistmois:
     chemin = os.getcwd()
     liste = (os.listdir(chemin))
 
-    # trouver dans liste les fichiers commencant par args.addlist
+    # trouver dans liste les fichiers commencant par args.addlistmois
     for i in liste:
         if re.match("inscrits-"+args.addlistmois, i):
             print(i)
@@ -87,12 +87,12 @@ if args.printlistdivision:
 
     classement = [["Non_admis"], ["Poussin"], ["Cadet"], ["Junior"], ["Semi_pro"], ["Pro"]]
 
-    # Recuperer le fieldname categorie de chaque ligne de inscrits-total(csv)
+    # Recuperer la "categorie" de chaque ligne de printandremove(csv)
     with open("printandremove-"+args.printlistdivision+".csv", "r", newline='') as fichier:
         fieldnames = ['nom', 'prenom', 'email', 'categorie']
         reader = csv.DictReader(fichier, fieldnames=fieldnames, delimiter=';')
         for line in reader:
-            # comparer le resultat de categorie(du csv) avec la liste classement, ajouter donné dans classement si egal
+            # comparer le resultat de line"categorie" avec la liste classement, ajouter donné dans classement si egal
             for i in classement:
                 if i[0] == line['categorie']:
                     a = str(line['nom']), str(line['prenom']), str(line['email']), str(line['categorie'])
