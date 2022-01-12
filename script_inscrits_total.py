@@ -53,7 +53,11 @@ Pro = 0
 #     for line in csvfile:
 #         print(line[2])
 
-
+with open("inscrits_total/inscrits_total.csv", "r", newline='') as f:
+    fieldnames = ['nom', 'prenom', 'email', 'categorie']
+    reader = csv.DictReader(f, fieldnames=fieldnames, delimiter=';')
+    for line in reader:
+        print(line['categorie'])
 
 
 
